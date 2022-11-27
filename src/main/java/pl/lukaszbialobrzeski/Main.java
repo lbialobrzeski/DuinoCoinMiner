@@ -15,5 +15,14 @@ public class Main {
         diffChoice = sc.nextLine();
         sc.close();
         boolean useLowerDiff = diffChoice.toLowerCase().equals("n");
+
+        Node node = fetchPools();
+    }
+
+    private static Node fetchPools() {
+        HttpURLConnectionWrapper http = new HttpURLConnectionWrapper();
+        Node node = http.get("https://server.duinocoin.com/getPool");
+
+        return node;
     }
 }
